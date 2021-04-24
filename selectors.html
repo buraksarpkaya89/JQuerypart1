@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Selectors</title>
+</head>
+<body>
+    
+
+    <ul>
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Quaerat similique natus quidem eos.</li>
+        <li class="kirmizi">dolore inventore vitae reiciendis suscipit!</li>
+        <li>Maxime est dicta maiores veniam?</li>
+        <li id="oge5">Tempore ullam nihil optio earum!</li>
+        <li>Nihil quaerat nostrum cupiditate fugiat!</li>
+        <li class="kirmizi">Similique facilis ipsam illo eaque.</li>
+        <li>Minus possimus pariatur eos neque!</li>
+        <li title="bir açıklama">Laborum repellendus fugit unde quia?</li>
+        <li>Harum aliquid natus tempora sed?</li>
+    </ul>
+
+    <p> 
+        <span style="display: none;">Bir numaralı</span> Arama motoru: <a href="https://google.com">google</a>
+    </p>
+    
+    <div style="display: none;">
+        Bu element gizlidir
+
+    </div>
+
+    <form>
+        <label for="ad">Ad</label>
+        <input type="text" name="ad" id="ad">
+        <label for="soyad">Soyad</label>
+        <input type="text" name="soyad" id="soyad">
+        <label for="sehir">Sehir</label>
+        <select name="sehir" id="sehir">
+            <option value="6">Ankara</option>
+            <option value="34">İstanbul</option>
+            <option value="1">Adana</option>
+        </select>
+        <input type="button" style="color: purple;">
+    </form>
+
+
+    <button onclick="goster()">Tüm gizlileri göster</button>
+
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+        //herşeyi seç
+        //$("*").css({
+         //   "border":"1px solid black"
+        //})
+        //element ismiyle seçelim : tüm li'leri seç hepsinin sonuna gülücük koy
+        $("li").append(" :) ");
+
+        //$("ul").css("list-style","none")
+        //class ile seçim
+        $(".kirmizi").css("color","red")
+
+        $("#oge5").css("text-decoration","underline")
+
+        //title attribute ile seçim
+        $('[title="bir açıklama"]').css("background-color","yellow")
+
+        //siblings : #oge5 
+        $("#oge5 + *").css("border-left","10px solid red")
+
+        //content filter örnekleri içinde dolor geçenlerin sonuna çarpı koy
+        $("li:contains('dolor')").append("X")
+
+        //içinde link içeren paragrafları seç
+        $("p:has(a)").append("[link]")
+
+        function goster() {
+            $(":hidden").show();
+        }
+
+        //metin kutusunun sağına* koy
+        $("input[type= 'text']").after(" * ");
+
+        //append bir elementin içinin sonuna ekler
+        //afrer doğrudan sonuna ekler
+
+        //name attributesi d harfi ile bitenleri arka planını pembe yap
+        $("input[name$='d").css("background-color","pink")
+
+        //inputlardan type button olanların değerini kaydet
+        $("input:button").val("Kaydet")
+
+        //child filters
+        //u'un içindeli li lerin teklerin sonuna T çiftlerin sonuna Ç yaz
+        $("ul > li:nth-child(odd)").append("[T]");
+        $("ul > li:nth-child(even)").append("[Ç]");
+
+        //ul'un içindeki 4. li'nin metnini Burak yap
+        $("ul > li:nth-child(4)").text("Burak").css("text-align","left");
+
+
+    </script>
+
+
+
+
+</body>
+</html>
