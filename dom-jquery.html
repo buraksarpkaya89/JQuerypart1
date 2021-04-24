@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom vs JQuery</title>
+</head>
+<body>
+    <p>Lorem ipsum dolor</p>
+    <p>Lorem ipsum dolor</p>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+        //yukarıdaki ilk paragrafın dom nesnesine erişiyoruz
+        //var parag = document.querySelector("p")
+        //parag.style.color = "red";
+        //$(parag).css("color","red");
+        var p1 = $("p");
+        p1.css("color","red")
+
+        //jquery nesnesinden dom eementine erişme
+        var p = $("p")[0]; //saf dom elementi
+        p.style.backgroundColor = "green"; //saf js ile değiştirdik
+
+        
+    </script>
+</body>
+</html>
