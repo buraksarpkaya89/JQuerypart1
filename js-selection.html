@@ -8,15 +8,21 @@
 </head>
 <body>
     <p>Lorem ipsum dolor sit.</p>
-    <p>Lorem ipsum dolor sit amet.</p>
+    <p id="onemli">Lorem ipsum dolor sit amet.</p>
     <script src="jquery-3.6.0.min.js"></script>
     <script>
+        //tüm paragrafları getir ve arka planı sarı yap
         var dizi =document.querySelectorAll("p");
 
         for (var i=0; i < dizi.length; i++)
-        dizi[i].style.backgroundColor ="yellow"
+        dizi[i].style.backgroundColor ="yellow";
 
-        
+        //jquery karşılığı:
+        // $("p").css("background-color","purple")
+        var parag = document.getElementById("onemli");
+        parag.style.fontWeight ="bold";
+        //jquery karşılığı
+        //$("#onemli").css("font-weight","bold")
     </script>
 </body>
 </html>
